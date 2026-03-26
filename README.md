@@ -2,6 +2,10 @@
 
 API RESTful para trazabilidad industrial de `units` (piezas) y `carriers`, construida con .NET y preparada para PostgreSQL en Docker.
 
+## About
+
+Industrial traceability platform prototype with ASP.NET Core, PostgreSQL, Docker, and operator-focused dummy web stations for unit/carrier process flow control.
+
 ## Contenido
 
 1. [Resumen](#resumen)
