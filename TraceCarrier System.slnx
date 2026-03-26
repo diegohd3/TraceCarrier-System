@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TraceCarrier System/TraceCarrier System.csproj" />
+  <Project Path="TraceCarrier.OperatorDummy/TraceCarrier.OperatorDummy.csproj" />
+</Solution>

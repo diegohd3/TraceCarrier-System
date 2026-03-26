@@ -1,0 +1,63 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Operator Dashboard";
+}
+
+<div class="mb-4">
+    <h1 class="display-6">TraceCarrier Operator Dummy Apps</h1>
+    <p class="text-muted mb-0">Flujo de estaciones para simular la operacion industrial.</p>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-6 col-xl-4">
+        <a class="text-decoration-none" asp-page="/Stations/Step1CreateUnit">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">1. Crear Unidad</h5>
+                    <p class="card-text text-muted">Generar unit_id y registrar una nueva pieza.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <a class="text-decoration-none" asp-page="/Stations/Step2UnitSecondProcess">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">2. Segundo Proceso</h5>
+                    <p class="card-text text-muted">Iniciar y completar proceso con tiempo minimo requerido.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <a class="text-decoration-none" asp-page="/Stations/Step3AssembleCarrier">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">3. Crear Carrier + Unir Lista</h5>
+                    <p class="card-text text-muted">Crear carrier y asociar lote de piezas en una sola accion.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <a class="text-decoration-none" asp-page="/Stations/Step4CarrierProcess">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">4. Proceso de Carrier</h5>
+                    <p class="card-text text-muted">Controlar procesos del carrier con tiempo minimo.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <a class="text-decoration-none" asp-page="/Stations/Step5ReleaseUnits">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">5. Desvincular Unidades</h5>
+                    <p class="card-text text-muted">Separar piezas del carrier sin eliminar el carrier.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

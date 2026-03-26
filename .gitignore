@@ -1,0 +1,15 @@
+# Build output
+**/bin/
+**/obj/
+artifacts/
+
+# IDE/user-specific
+.vs/
+*.user
+*.suo
+
+# Local environment secrets
+.env
+
+# Logs
+*.log

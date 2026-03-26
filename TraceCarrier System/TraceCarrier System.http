@@ -1,0 +1,89 @@
+@TraceCarrier_System_HostAddress = http://localhost:5138
+
+POST {{TraceCarrier_System_HostAddress}}/api/units/id
+Accept: application/json
+
+###
+
+POST {{TraceCarrier_System_HostAddress}}/api/units
+Content-Type: application/json
+
+{
+  "currentProcess": "process_1",
+  "status": "created"
+}
+
+###
+
+POST {{TraceCarrier_System_HostAddress}}/api/carriers/id
+Accept: application/json
+
+###
+
+POST {{TraceCarrier_System_HostAddress}}/api/carriers
+Content-Type: application/json
+
+{
+  "status": "active"
+}
+
+###
+
+POST {{TraceCarrier_System_HostAddress}}/api/carriers/assemble
+Content-Type: application/json
+
+{
+  "carrierStatus": "loaded",
+  "unitIds": [
+    "UNIT-REPLACE-1",
+    "UNIT-REPLACE-2"
+  ]
+}
+
+###
+
+PUT {{TraceCarrier_System_HostAddress}}/api/carriers/CAR-REPLACE/units/UNIT-REPLACE
+Accept: application/json
+
+###
+
+POST {{TraceCarrier_System_HostAddress}}/api/units/UNIT-REPLACE/processes
+Content-Type: application/json
+
+{
+  "processName": "process_2",
+  "requiredTimeSeconds": 10,
+  "notes": "Second process started"
+}
+
+###
+
+PATCH {{TraceCarrier_System_HostAddress}}/api/units/UNIT-REPLACE/processes/process_2/complete
+Accept: application/json
+
+###
+
+POST {{TraceCarrier_System_HostAddress}}/api/carriers/CAR-REPLACE/processes
+Content-Type: application/json
+
+{
+  "processName": "carrier_station_1",
+  "requiredTimeSeconds": 20,
+  "notes": "Carrier process started"
+}
+
+###
+
+PATCH {{TraceCarrier_System_HostAddress}}/api/carriers/CAR-REPLACE/processes/carrier_station_1/complete
+Accept: application/json
+
+###
+
+POST {{TraceCarrier_System_HostAddress}}/api/carriers/CAR-REPLACE/finalization
+Content-Type: application/json
+
+{
+  "unitIdsToRelease": ["UNIT-RELEASE-1", "UNIT-RELEASE-2"],
+  "releasedUnitStatus": "released_from_carrier",
+  "releasedUnitProcess": "post_carrier_unlink"
+}

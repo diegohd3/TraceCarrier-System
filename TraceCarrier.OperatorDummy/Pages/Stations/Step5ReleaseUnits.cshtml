@@ -1,0 +1,43 @@
+@page
+@model TraceCarrier.OperatorDummy.Pages.Stations.Step5ReleaseUnitsModel
+@{
+    ViewData["Title"] = "Paso 5 - Desvincular Unidades";
+}
+
+<h2 class="mb-3">Paso 5: Desvincular Unidades del Carrier</h2>
+
+<form method="post" class="card card-body shadow-sm">
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Carrier ID</label>
+            <input class="form-control" asp-for="Input.CarrierId" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Nuevo Status de Unidad</label>
+            <input class="form-control" asp-for="Input.ReleasedUnitStatus" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Nuevo Proceso de Unidad</label>
+            <input class="form-control" asp-for="Input.ReleasedUnitProcess" />
+        </div>
+        <div class="col-12">
+            <label class="form-label">
+                Unit IDs a liberar (opcional). Si lo dejas vacio se liberan todas las unidades del carrier.
+            </label>
+            <textarea class="form-control" asp-for="Input.UnitIdsToReleaseRaw" rows="4"></textarea>
+        </div>
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-warning" type="submit" asp-page-handler="Release">Desvincular Unidades</button>
+    </div>
+</form>
+
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    <div class="alert @(Model.Success ? "alert-success" : "alert-danger") mt-3">@Model.Message</div>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.ApiResponse))
+{
+    <pre class="bg-light border rounded p-3 mt-3">@Model.ApiResponse</pre>
+}
